@@ -40,3 +40,9 @@ def ajaxsavephoto(request):
     context = { 'ajax_output':  ajax.output()}
     return render(request, 'ajax.html', context)
 
+def ajaxphotofeed(request):
+    ajax = AjaxSavePhoto(request.GET, request.user)
+    context = { 'ajax_output':  ajax.output()}
+    return render(request, 'ajax.html', context)
+
+

@@ -23,5 +23,7 @@ urlpatterns = [
     url(r'^sign-up$', views.signup),
     url(r'^ajax-sign-up$', views.ajaxsignup),
     url(r'^ajax-login$', views.ajaxlogin),
-    url(r'^ajax-save-photo',views.ajaxsavephoto)
+    url(r'^ajax-save-photo',views.ajaxsavephoto),   
+    url(r'^ajax-photo-feed',views.ajaxphotofeed)
 ]
+

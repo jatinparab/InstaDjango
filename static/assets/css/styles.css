@@ -54,9 +54,10 @@ body {
 }
 
 .img-container {
-  margin-top:10px;
+  margin-top:100px;
   width:600px;
-  position:relative;
+  position: absolute;
+  left:25%;
   padding-left:0px;
   padding-right:0px;
 }

@@ -27,18 +27,19 @@
                     <div class="menu-buttons">
                         <img class="icon-nav"  src="{% static "assets/img/explore.png" %}">
                         <img class="icon-nav " src="{% static "assets/img/activity.png" %}">
-                        <img class="icon-nav"  src="{% static "assets/img/user.png" %}">
+                        <img class="icon-nav" id="upload-but"  src="{% static "assets/img/user.png" %}">
+                       
                     </div>
             </div>
         </div>
 
 
 
-    <div class="container img-container">
+    <div class="img-container">
             <div id="upload-div">
                     <div class="img-div" style="position: relative; margin-bottom: 0px">
                         <div class="header"><img class="img-circle" src="{{ ProfilePic }}">
-                            <label>/{{ user.username }}</label>
+                            <label>{{ user.username }}</label>
                         </div>
                         <div class="empty-upload-container">
                                 <div style="width: 100%; height: 300px">
@@ -94,8 +95,9 @@
                     </div>
                     </div>
             </div>
-            <div id="loadposts"></div>
+            
     </div>
+    <div id="loadposts"></div>
     <script src="{% static "assets/js/jquery.min.js" %}"></script>
     <script src="{% static "assets/bootstrap/js/bootstrap.min.js" %}"></script>
     <script src={% static "assets/js/django-ajax.js" %}></script>
