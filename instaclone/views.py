@@ -73,3 +73,9 @@ def logout(request):
     context = {}
     dlogout(request)
     return redirect(home)
+
+
+def ajaxsetprofilepic(request):
+    ajax = AjaxSetProfilePic(request.POST, request.user)
+    context = {'ajax_output': ajax.output()}
+    return render(request, 'ajax.html', context)

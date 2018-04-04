@@ -17,7 +17,7 @@
         <div class="photo-viewer">
                 <div class="img-div">
                         <div class="header">
-                                <img class="img-circle" src="{{ ProfilePic }}"><label>/{{whosprofile}}</label></div>
+                                <img class="img-circle" src="{{ ProfilePic }}"><label>{{whosprofile}}</label></div>
                                 <img style="max-height: 500px" id="detailphoto" src="">
                                 <div class="header">
                                         <a id="likephoto" href="javascript:void(0)" data-postid=""><i class="fa fa-heart-o"></i></a></div><div class="more-section"><label><span id="likes"></span> Likes</label>
@@ -26,21 +26,30 @@
                                 </div>
         </div>
         <div class="overlay"></div>
-        <div class="container-fluid header-top">
-            <div class="col-md-12" style="padding:0px;">
-                    <div class="top-menu-logo"><a href="/"><img src="{% static "assets/img/logo.jpg" %}" class="center-block" style="height:40px;margin-top:10px;margin-bottom:10px;"></a>
-                    <div class="menu-buttons">
-                        <button class="btn btn-default" type="button" id="upload-but"><i class="glyphicon glyphicon-upload"></i></button>
-                        <a href="/{{ logged_in_as }}"><button class="btn btn-default" type="button" id="profile-but"><i class="glyphicon glyphicon-user"></i></button></a>
+        <div class="header-top">
+            <div class="header-top-inner">
+                    <div class="top-menu-logo"><a href="/"><img src="{% static "assets/img/logo2.png" %}"></a>
                     </div>
-                </div>
+                    <div class="search-wrap">
+
+                        <input type="text" class="input-search" placeholder="Search" value="">
+
+                    </div>
+                    <div class="menu-buttons">
+                        <img class="icon-nav"  src="{% static "assets/img/explore.png" %}">
+                        <img class="icon-nav " src="{% static "assets/img/activity.png" %}">
+                        <img class="icon-nav" id="upload-but"  src="{% static "assets/img/user.png" %}">
+
+                    </div>
             </div>
         </div>
     <div class="container img-container">
+
+
             <div id="upload-div">
                     <div class="img-div" style="position: relative; margin-bottom: 0px">
                         <div class="header"><img class="img-circle" src="{{ ProfilePic }}">
-                            <label>/{{ logged_in_as }}</label>
+                            <label>{{ logged_in_as }}</label>
                         </div>
                         <div class="empty-upload-container">
                                 <div style="width: 100%; height: 300px">
@@ -98,8 +107,24 @@
             </div>
 
     </div>
-    <div class="container"><img class="img-circle center-block" id="profilepic" src="{{ ProfilePic }}" width="140" height="140">
-        <h1 class="text-center">{{ whosprofile }} <button id="follow" class="btn btn-default btn-primary follow-button" type="button">{{ following }}</button></h1>
+    <div class="maincontainer-profile">
+        <div id="profile-header">
+            <div id="profilepic-container">
+                <img class="img-circle center-block" id="profilepic" src="{{ ProfilePic }}" width="140" height="140">
+            </div>
+            <div id="rest-container">
+                    <h1 id="title-name" >{{ whosprofile }}  <button class="{{ buttonfollow }}">{{following}}</button></h1>
+
+
+                <div id="info-display">
+                    <p class="info"><strong class="info-number">45 </strong>posts</p>
+                    <p class="info"><strong class="info-number">45 </strong>followers</p>
+                    <p class="info"><strong class="info-number">45 </strong>following</p>
+                </div>
+
+                <p class="info-name"><strong>Jatin Parab </strong>Bio Goes Here</p>
+            </div>
+        </div>
         <div class="col-md-12 profile-imgs">
             <div id="loadposts">
             </div>
@@ -220,6 +245,7 @@
                    getPosts();
                setTimeout(function() {
                 working = false;
+
                 }, 4000)
                 }
            }

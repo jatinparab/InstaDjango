@@ -351,6 +351,7 @@ grayscale:hover {
 .profile-imgs img {
   width:24%;
   margin:0.5%;
+  padding:5%;
 }
 
 .profile-imgs div div {
@@ -360,7 +361,7 @@ grayscale:hover {
   background-position:center center;
   background-repeat:no-repeat;
   display:inline-block;
-  margin:0.4%;
+  margin:5px;
   position:relative;
   cursor:pointer;
 }
@@ -494,7 +495,14 @@ grayscale:hover {
 
 #profile-header{
     display:flex;
+
     flex-direction: row;
+    justify-content: center;
+}
+
+#wrapper-center{
+    display:flex;
+    flex-direction:row;
     justify-content: center;
 }
 
@@ -504,3 +512,70 @@ grayscale:hover {
     padding-top:120px;
 }
 
+#rest-container{
+
+}
+
+#profilepic-container{
+    padding:15px;
+    margin-right:50px;
+}
+
+#title-name{
+    font-weight:200;
+}
+
+.info{
+    font-size:17px;
+    font-weight:400;
+    margin-right:30px;
+}
+
+#info-display{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.info-number{
+    font-size:17px;
+}
+
+.info-name{
+    font-size:20px;
+    font-weight:200;
+}
+
+.btn-t{
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+    font-weight:400;
+  color: #000000;
+  font-size: 19px;
+  background: #fafafa;
+  padding: 7px 33px 7px 33px;
+  border: solid #dbdbdb 1px;
+  text-decoration: none;
+  margin-top:5px;
+}
+
+.btn-p{
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+    font-weight:400;
+  color: #fafafa;
+  font-size: 19px;
+  background: #3897f0;
+  padding: 7px 33px 7px 33px;
+  border: solid #dbdbdb 1px;
+  text-decoration: none;
+  margin-top:5px;
+}
+
+#name-btn{
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-start;
+}
