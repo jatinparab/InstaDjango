@@ -113,7 +113,7 @@
                 <img class="img-circle center-block" id="profilepic" src="{{ ProfilePic }}" width="140" height="140">
             </div>
             <div id="rest-container">
-                    <h1 id="title-name" >{{ whosprofile }}  <button class="{{ buttonfollow }}">{{following}}</button></h1>
+                    <h1 id="title-name" >{{ whosprofile }}  <button id="follow" class="{{ cls }}">{{following}}</button></h1>
 
 
                 <div id="info-display">
@@ -145,9 +145,11 @@
                 data: '',
                 success: function(r) {
                         if (JSON.parse(r).Following == true) {
-                                $('#follow').html("Unfollow")
+                                $('#follow').html("Following");
+                                $('#follow').attr('class','btn-t');
                         } else {
-                                $('#follow').html("Follow")
+                                $('#follow').html("Follow");
+                                $('#follow').attr('class','btn-p');
                         }
                 },
                 error: function(r) {
@@ -221,7 +223,7 @@
                                             if ($(this).data('postid') == $('#likephoto').data('postid')) {
                                                     if ($(this).data('liked') == false) {
                                                             $(this).data('liked',true)
-                                                            $('#likephoto').css('color', '#440e96')
+                                                                $('#likephoto').css('color', '#ff4444')
                                                             $('#likephoto i').attr('class', 'fa fa-heart')
                                                     } else {
                                                             $(this).data('liked',false)

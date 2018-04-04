@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import User
+from .models import User, Photo, Followers
 from .forms import *
 from django.contrib.auth import authenticate, login, logout as dlogout
 
@@ -57,11 +57,18 @@ def profile(request, username):
     if User.objects.filter(username=username).exists():
         u = User.objects.filter(username=username)[0]
 
+        if not Followers.objects.filter(user=username, follower=request.user.username).exists():
+            following = "Follow"
+            cls = "btn-p"
+        else:
+            following = "Following"
+            cls = "btn-t"
+
         if u.profilepic == "":
             u.profilepic = "static/assets/img/default.png"
 
         context = {
-            'ProfilePic': u.profilepic, "whosprofile": username, "logged_in_as": request.user.username
+            'ProfilePic': u.profilepic, "whosprofile": username, "logged_in_as": request.user.username, "following": following, "cls":cls
         }
 
         if request.user.is_authenticated:
@@ -85,4 +92,8 @@ def ajaxlikephoto(request):
     context = {'ajax_output': ajax.output()}
     return render(request, 'ajax.html', context)
 
-def ajaxfollow
+def ajaxfollow(request):
+    ajax = AjaxFollow(request.GET,request.user)
+    context = {'ajax_output': ajax.output()}
+    return render(request, 'ajax.html', context)
+

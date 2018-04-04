@@ -124,7 +124,7 @@
                                 }
                                 $('.likephoto').each(function() {
                                         if ($(this).data('liked') == true) {
-                                                $(this).css('color', '#440e96')
+                                                $(this).css('color', '#ff4444')
                                                 $('i', this).attr('class', 'fa fa-heart')
                                         } else {
                                                 $(this).css('color', '#333')
@@ -144,7 +144,7 @@
                                                             if (JSON.parse(r).Status == 'Success') {
                                                         if (but.data('liked') == false) {
                                                                 but.data('liked',true)
-                                                                but.css('color', '#440e96')
+                                                                but.css('color', '#ff4444')
                                                                 buti.attr('class', 'fa fa-heart')
                                                         } else {
                                                                 but.data('liked',false)

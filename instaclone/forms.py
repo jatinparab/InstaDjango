@@ -211,7 +211,7 @@ class AjaxProfileFeed(Ajax):
 
         for item in Photo.objects.filter(owner=self.username).order_by('-date_uploaded')[
                     int(self.start):int(self.start) + 3]:
-            if PhotoLikes.objects.filter(liker=self.user.username).filter(postid=item.id).exists():
+            if PhotoLikes.objects.filter(liker=self.username).filter(postid=item.id).exists():
                 liked = True
             else:
                 liked = False
