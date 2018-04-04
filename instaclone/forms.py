@@ -163,23 +163,31 @@ class AjaxLikePhoto(Ajax):
 
 class AjaxPhotoFeed(Ajax):
     def validate(self):
-
-        self.start = self.args[0]["start"]
-
+        try:
+            self.start = self.args[0]["start"]
+        except Exception as e:
+            return self.error("Malformed request, did not process.")
         out = []
-
+        followerslist = [self.user.username]
         profilepics = {}
 
-        for user in User.objects.filter(username=self.user.username):
+        for follower in Followers.objects.filter(follower=self.user.username):
+            followerslist.append(follower.user)
+
+        for user in User.objects.filter(username__in=followerslist):
             profilepics[user.username] = user.profilepic
             if user.profilepic == "":
                 profilepics[user.username] = "static/assets/img/default.png"
 
-        for item in Photo.objects.filter(owner=self.user.username).order_by('-date_uploaded')[
+        for item in Photo.objects.filter(owner__in=followerslist).order_by('-date_uploaded')[
                     int(self.start):int(self.start) + 3]:
+            if PhotoLikes.objects.filter(liker=self.user.username).filter(postid=item.id).exists():
+                liked = True
+            else:
+                liked = False
             out.append(
                 {"PostID": item.id, "URL": item.url, "Caption": item.caption, "Owner": item.owner, "Likes": item.likes,
-                 "DateUploaded": item.date_uploaded.strftime("%Y-%m-%d %H:%M:%S"),
+                 "DateUploaded": item.date_uploaded.strftime("%Y-%m-%d %H:%M:%S"), "Liked": liked,
                  "ProfilePic": profilepics[item.owner] + "", "MainColour": item.main_colour})
 
         return self.items(json.dumps(out))
@@ -203,9 +211,13 @@ class AjaxProfileFeed(Ajax):
 
         for item in Photo.objects.filter(owner=self.username).order_by('-date_uploaded')[
                     int(self.start):int(self.start) + 3]:
+            if PhotoLikes.objects.filter(liker=self.user.username).filter(postid=item.id).exists():
+                liked = True
+            else:
+                liked = False
             out.append(
                 {"PostID": item.id, "URL": item.url, "Caption": item.caption, "Owner": item.owner, "Likes": item.likes,
-                 "DateUploaded": item.date_uploaded.strftime("%Y-%m-%d %H:%M:%S"),
+                 "DateUploaded": item.date_uploaded.strftime("%Y-%m-%d %H:%M:%S"), "Liked": liked,
                  "ProfilePic": profilepics[item.owner] + "", "MainColour": item.main_colour})
 
         return self.items(json.dumps(out))
