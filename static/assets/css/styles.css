@@ -345,6 +345,7 @@ grayscale:hover {
 }
 
 .profile-imgs {
+    margin-top:-80px;
 }
 
 .profile-imgs img {
@@ -488,5 +489,18 @@ grayscale:hover {
 
 .img-div{
 
+}
+
+
+#profile-header{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+.maincontainer-profile{
+    padding-top:120px;
 }
 

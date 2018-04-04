@@ -30,29 +30,46 @@ def home(request):
         u = User.objects.filter(username=request.user.username)[0]
         if u.profilepic == "":
             u.profilepic = "static/assets/img/default.png"
-        context  = {'user': request.user, 'ProfilePic': u.profilepic}
+        context = {'user': request.user, 'ProfilePic': u.profilepic}
         return render(request, 'logged-in-index.html', context)
     return render(request, 'index.html', context)
 
 
 def ajaxsavephoto(request):
     ajax = AjaxSavePhoto(request.POST, request.user)
-    context = { 'ajax_output':  ajax.output()}
+    context = {'ajax_output': ajax.output()}
     return render(request, 'ajax.html', context)
+
 
 def ajaxphotofeed(request):
     ajax = AjaxPhotoFeed(request.GET, request.user)
-    context = { 'ajax_output':  ajax.output()}
+    context = {'ajax_output': ajax.output()}
     return render(request, 'ajax.html', context)
+
 
 def ajaxprofilefeed(request):
     ajax = AjaxProfileFeed(request.GET, request.user)
     context = {'ajax_output': ajax.output()}
     return render(request, 'ajax.html', context)
 
+
 def profile(request, username):
-    if User.opjects.filter(username=username).exists():
-        u = User.objects.filter()
+    if User.objects.filter(username=username).exists():
+        u = User.objects.filter(username=username)[0]
+
+        if u.profilepic == "":
+            u.profilepic = "static/assets/img/default.png"
+
+        context = {
+            'ProfilePic': u.profilepic, "whosprofile": username, "logged_in_as": request.user.username
+        }
+
+        if request.user.is_authenticated:
+            return render(request, 'logged-in-profile.html', context)
+        return render(request, 'profile.html', context)
 
 
-
+def logout(request):
+    context = {}
+    dlogout(request)
+    return redirect(home)

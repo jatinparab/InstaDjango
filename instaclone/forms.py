@@ -193,16 +193,20 @@ class AjaxProfileFeed(Ajax):
         except Exception as e:
             return self.error("Malformed request, did not process.")
         out = []
+
+        profilepics = {}
+
+        for user in User.objects.filter(username=self.username):
+            profilepics[user.username] = user.profilepic
+            if user.profilepic == "":
+                profilepics[user.username] = "static/assets/img/default.png"
+
         for item in Photo.objects.filter(owner=self.username).order_by('-date_uploaded')[
                     int(self.start):int(self.start) + 3]:
-            if PhotoLikes.objects.filter(liker=self.user.username).filter(postid=item.id).exists():
-                liked = True
-            else:
-                liked = False
             out.append(
                 {"PostID": item.id, "URL": item.url, "Caption": item.caption, "Owner": item.owner, "Likes": item.likes,
-                 "DateUploaded": item.date_uploaded.strftime("%Y-%m-%d %H:%M:%S"), "Liked": liked,
-                 "MainColour": item.main_colour})
+                 "DateUploaded": item.date_uploaded.strftime("%Y-%m-%d %H:%M:%S"),
+                 "ProfilePic": profilepics[item.owner] + "", "MainColour": item.main_colour})
 
         return self.items(json.dumps(out))
 
