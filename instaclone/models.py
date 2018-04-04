@@ -4,10 +4,12 @@ from django.db import models
 class User(models.Model):
     is_authenticated = True
     username = models.CharField(max_length=20)
-    email = models.CharField(max_length=30)
-    password = models.CharField(max_length=120)
+    password = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    sign_up_date = models.DateTimeField(auto_now=True)
     last_login = models.DateTimeField(auto_now=True)
-    profilepic = models.CharField(max_length=255,default='')
+    profilepic = models.CharField(max_length=255, default="")
+
 
 class Photo(models.Model):
     baseurl = models.CharField(max_length=255)
@@ -18,6 +20,17 @@ class Photo(models.Model):
     caption = models.CharField(max_length=140, default="")
     tags = models.IntegerField(default=0)
     main_colour = models.CharField(max_length=15, default="")
+
+
+class PhotoLikes(models.Model):
+    postid = models.IntegerField()
+    liker = models.CharField(max_length=20)
+
+
+class Followers(models.Model):
+    user = models.CharField(max_length=20, default="")
+    follower = models.CharField(max_length=20, default="")
+
 
 class PhotoTag(models.Model):
     photoid = models.IntegerField()

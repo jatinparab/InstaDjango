@@ -22,12 +22,14 @@ body {
 .img-div {
   margin-bottom:40px;
   border:1px solid #e8e6e6;
+  background:#fff;
 }
 
 .img-div .header {
   width:100%;
   height:50px;
   position:relative;
+  background:#fff;
 }
 
 .img-div .header .img-circle {
@@ -54,10 +56,9 @@ body {
 }
 
 .img-container {
-  margin-top:100px;
-  width:600px;
+
+  width:100%;
   position: absolute;
-  left:25%;
   padding-left:0px;
   padding-right:0px;
 }
@@ -287,7 +288,7 @@ grayscale:hover {
 }
 
 #upload-div, .photo-viewer {
-  width:100%;
+  width:50%;
   height:auto;
   position:absolute;
   background-color:#ffffff;
@@ -295,8 +296,8 @@ grayscale:hover {
   display:none;
   /*box-shadow:2px 0px 12px #CCC;*/
   position:absolute;
-  top:-40px;
-  left:0px;
+  top:2%;
+  left:25%;
 }
 
 .overlay {
@@ -471,5 +472,21 @@ grayscale:hover {
   margin:0px;
   opacity:0.4;
   position:absolute;
+}
+
+#loadposts{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    padding:30px;
+    margin-top:120px;
+}
+
+#loadpost-wrap{
+    width:50%;
+}
+
+.img-div{
+
 }
 

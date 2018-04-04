@@ -41,8 +41,18 @@ def ajaxsavephoto(request):
     return render(request, 'ajax.html', context)
 
 def ajaxphotofeed(request):
-    ajax = AjaxSavePhoto(request.GET, request.user)
+    ajax = AjaxPhotoFeed(request.GET, request.user)
     context = { 'ajax_output':  ajax.output()}
     return render(request, 'ajax.html', context)
+
+def ajaxprofilefeed(request):
+    ajax = AjaxProfileFeed(request.GET, request.user)
+    context = {'ajax_output': ajax.output()}
+    return render(request, 'ajax.html', context)
+
+def profile(request, username):
+    if User.opjects.filter(username=username).exists():
+        u = User.objects.filter()
+
 
 

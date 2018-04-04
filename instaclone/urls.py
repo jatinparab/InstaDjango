@@ -24,6 +24,8 @@ urlpatterns = [
     url(r'^ajax-sign-up$', views.ajaxsignup),
     url(r'^ajax-login$', views.ajaxlogin),
     url(r'^ajax-save-photo',views.ajaxsavephoto),   
-    url(r'^ajax-photo-feed',views.ajaxphotofeed)
+    url(r'^ajax-photo-feed',views.ajaxphotofeed),
+    url(r'(?P<username>[a-zA-Z0-9_]+)$',views.profile),
+    url(r'^ajax-profile-feed',views.ajaxprofilefeed),
 ]
 
