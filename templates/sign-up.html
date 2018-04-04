@@ -50,7 +50,7 @@
 		window.location = '/';
 	} else {
 		$('#errors').html("<span>" + JSON.parse(data).Message + "</span>")
-		$('#errors').css('display', 'block')
+		$('#errors').css('display', 'flex')
 	}
     });
         return false;

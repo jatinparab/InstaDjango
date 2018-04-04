@@ -127,3 +127,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+AUTHENTICATION_BACKENDS = ('instaclone.authb.AuthB', )
+

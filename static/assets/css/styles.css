@@ -245,11 +245,6 @@ grayscale:hover {
   cursor:pointer;
 }
 
-.menu-buttons {
-  position:absolute;
-  top:5px;
-  right:0px;
-}
 
 .menu-buttons button {
   margin-left:5px;
@@ -280,11 +275,7 @@ grayscale:hover {
 .menu-buttons button:first-child {
 }
 
-.top-menu-logo {
-  width:600px;
-  margin:0px auto;
-  position:relative;
-}
+
 
 @media (max-width:767px) {
   .top-menu-logo {

@@ -1,46 +1,96 @@
-.login-clean {
-  /*background:#f1f7fc;*/
-  padding:80px 0;
+@font-face {
+  font-family: 'billabongregular';
+  src: url('../fonts/billabong-webfont.woff2') format('woff2'),
+       url('../fonts/billabong-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
 }
+
+
+.login-clean {
+  background:#fafafa;
+  padding: 40px 0px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#imagephone{
+  flex-basis: 25%;
+}
+
+#loginform{
+  flex-basis: 26%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
 
 .login-clean form {
-  max-width:320px;
-  width:90%;
-  margin:0 auto;
+
+  width:94%;
+  margin:0 30px;
   background-color:#ffffff;
-  padding:40px;
-  border-radius:4px;
-  color:#505e6c;
-  box-shadow:1px 1px 5px rgba(0,0,0,0.1);
+  padding: 35px;
+
+  border: 1px solid #dcdcdc;
+  color:#003569;
 }
 
-.login-clean .illustration {
-  text-align:center;
-  padding:0 0 20px;
-  font-size:100px;
-  color:rgb(244,71,107);
-  position:relative;
+#signuptext{
+  width:94%;
+  margin: 10px 30px;
+  background-color:#ffffff;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+  border: 1px solid #dcdcdc;
+  color:#003569;
 }
+
+.logo{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+
+.form-group{
+  margin-bottom: 5px !important;
+} 
+
+
 
 .login-clean form .form-control {
-  background:#f7f9fc;
+  background:#fafafa;
   border:none;
-  border-bottom:1px solid #dfe7f1;
+  border:1px solid #dfe7f1;
   border-radius:0;
   box-shadow:none;
   outline:none;
   color:inherit;
-  text-indent:8px;
-  height:42px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+
 }
 
 .login-clean form .btn-primary {
-  background:#474ef4;
+  background: #3897f0;
+  border-color: #3897f0;
   border:none;
   border-radius:4px;
-  padding:11px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   box-shadow:none;
-  margin-top:26px;
+  margin-top:15px;
+  margin-bottom: 20px;
   text-shadow:none;
   outline:none !important;
 }
@@ -53,8 +103,8 @@
   display:block;
   text-align:center;
   font-size:12px;
-  color:#6f7a85;
-  opacity:0.9;
+  color:#003569;
+  opacity:1;
   text-decoration:none;
 }
 
@@ -64,7 +114,6 @@
 }
 
 .form-error-message {
-  position:absolute;
   width:100%;
   top:0px;
   padding:10px;
@@ -72,7 +121,188 @@
   background-color:#ff9bb9;
   background-image:none;
   color:#b10543;
-  /*display:none;*/
+  display:none;
   font-size:14px;
 }
+
+#bodymain{
+    background-color:#fafafa;
+}
+
+.header-top{
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.0975);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    -webkit-transition: height .2s ease-in-out;
+    transition: height .2s ease-in-out;
+    height: 77px;
+    display:flex;
+    align-items:center;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+
+.header-top-inner{
+    display: flex;
+    flex-direction: row;
+    height: 77px;
+    justify-content: space-around;
+    max-width: 1010px;
+    -webkit-transition: height .2s ease-in-out;
+    transition: height .2s ease-in-out;
+    width: 100%;
+}
+
+
+.search-wrap{
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    border: 0 solid #000;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    margin-top:20px;
+    min-width: 125px;
+    width: 215px;
+    height: 28px;
+}
+
+.search-box-wrap{
+    justify-content: center;
+    border: solid 1px #dbdbdb;
+    background: #fafafa;
+    font-size: 14px;
+    border-radius: 3px;
+    color: #999;
+    cursor: text;
+    font-weight: 300;
+    left: 0;
+    padding: 7px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    z-index: 2;
+}
+
+.span-wrap{
+    display: inline;
+    left: -5px;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    border: 0 solid #000;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.span-text{
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+    white-space: nowrap;
+}
+
+.span-icon{
+    margin-right: 6px;
+    vertical-align: baseline;
+}
+
+
+
+
+
+.menu-buttons{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.input-search{
+    border: solid 1px #dbdbdb;
+    border-radius: 3px;
+    color: #262626;
+    font-size: 14px;
+    outline: 0;
+    padding: 3px 10px 3px 26px;
+    z-index: 2;
+}
+
+.icon-nav{
+
+    margin-top:8px;
+    height:35px;
+    width:38px;
+}
+
+
+.search-box{
+    font-size: 14px;
+    border-radius: 3px;
+    color: #999;
+    cursor: text;
+    font-weight: 300;
+    left: 0;
+    padding: 7px;
+
+    position: absolute;
+    text-align: center;
+    top: 0;
+    z-index: 2;
+}
+
+.top-menu-logo{
+    padding-top:7px;
+}
+
+
 

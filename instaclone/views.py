@@ -3,6 +3,7 @@ from .models import User
 from .forms import *
 from django.contrib.auth import authenticate, login, logout as dlogout
 
+
 def ajaxsignup(request):
     ajax = AjaxSignUp(request.POST)
     context = {'ajax_output': ajax.output()}
@@ -23,6 +24,19 @@ def signup(request):
     return render(request, 'sign-up.html', context)
 
 
-def index(request):
+def home(request):
     context = {}
+    if request.user.is_authenticated:
+        u = User.objects.filter(username=request.user.username)[0]
+        if u.profilepic == "":
+            u.profilepic = "static/assets/img/default.png"
+        context  = {'user': request.user, 'ProfilePic': u.profilepic}
+        return render(request, 'logged-in-index.html', context)
     return render(request, 'index.html', context)
+
+
+def ajaxsavephoto(request):
+    ajax = AjaxSavePhoto(request.POST, request.user)
+    context = { 'ajax_output':  ajax.output()}
+    return render(request, 'ajax.html', context)
+
