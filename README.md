@@ -15,6 +15,10 @@ User Profile
 User Feed
 ![User Feed](https://i.imgur.com/Mwlp1wy.png)
 
+## Todo
+* Implement Stories
+* Implement Adding Comments
+
 
 
 
