@@ -117,12 +117,12 @@
 
 
                 <div id="info-display">
-                    <p class="info"><strong class="info-number">45 </strong>posts</p>
-                    <p class="info"><strong class="info-number">45 </strong>followers</p>
-                    <p class="info"><strong class="info-number">45 </strong>following</p>
+                    <p class="info"><strong class="info-number">{{posts}} </strong>posts</p>
+                    <p class="info"><strong class="info-number">{{followers_p}} </strong>followers</p>
+                    <p class="info"><strong class="info-number">{{following_p}} </strong>following</p>
                 </div>
 
-                <p class="info-name"><strong>Jatin Parab </strong>Bio Goes Here</p>
+                <p class="info-name"><strong>{{name}}</strong><br>{{bio}}</p>
             </div>
         </div>
         <div class="col-md-12 profile-imgs">
@@ -181,7 +181,7 @@
                                                 }
                                                 $('#likes').html($(this).data('likes'))
                                                 if ($(this).data('liked') == true) {
-                                                        $('#likephoto').css('color', '#440e96')
+                                                        $('#likephoto').css('color', '#ff4444')
                                                         $('#likephoto i').attr('class', 'fa fa-heart')
                                                 } else {
                                                         $('#likephoto').css('color', '#333')
@@ -195,7 +195,7 @@
                                                 $('.photo-viewer').show()
                                                 $('#upload-div').hide()
                                                 $('.overlay').fadeToggle('fast')
-                                                $('body').css('overflow', 'hidden')
+                                                $('body').css('overflow', 'auto')
                                                 } ;
                                 })
                                 })

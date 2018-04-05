@@ -55,12 +55,12 @@
             <div id="rest-container">
                 <h1 id="title-name" >{{ whosprofile }}</h1>
                 <div id="info-display">
-                    <p class="info"><strong class="info-number">45 </strong>posts</p>
-                    <p class="info"><strong class="info-number">45 </strong>followers</p>
-                    <p class="info"><strong class="info-number">45 </strong>following</p>
+                    <p class="info"><strong class="info-number">{{posts}} </strong>posts</p>
+                    <p class="info"><strong class="info-number">{{followers_p}} </strong>followers</p>
+                    <p class="info"><strong class="info-number">{{following_p}} </strong>following</p>
                 </div>
 
-                <p class="info-name"><strong>Jatin Parab </strong>Bio GOes Here</p>
+                <p class="info-name"><strong>{{name}} </strong>{{bio}}</p>
             </div>
         </div>
 
@@ -107,7 +107,7 @@
                                                 $('.photo-viewer').show()
                                                 $('#upload-div').hide()
                                                 $('.overlay').fadeToggle('fast')
-                                                $('body').css('overflow', 'hidden')
+                                                $('body').css('overflow', 'auto')
                                                 } ;
                                 })
                                 })

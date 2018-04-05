@@ -120,7 +120,7 @@
                                 r = JSON.parse(r)
                                 for (var i = 0; i < r.length; i++) {
                                         r[i].URL += '-/quality/lightest/'
-                                        $('#loadpost-wrap').append('<div class="img-div"><div class="header"><img class="img-circle" data-caption="'+r[i].Caption+'" src="'+r[i].ProfilePic+'"><label>'+r[i].Owner+' </label></div><img style="max-height: 500px; min-height: 300px; background-color: rgb('+r[i].MainColour+')" src="'+r[i].URL+'"><div class="header"><a href="javascript:void(0)" class="likephoto" data-liked='+ r[i].Liked +' data-postid="'+r[i].PostID+'" data-likes="'+r[i].Likes+'"><i class="fa fa-heart-o"></i></a></div><div class="more-section"><label>'+r[i].Likes+' Likes</label><p><strong>'+r[i].Owner+' </strong>'+r[i].Caption+'</p></div></div>')
+                                        $('#loadpost-wrap').append('<div class="img-div"><a style="text-decoration:none;color:#000" href="/'+r[i].Owner+'"><div class="header"><img class="img-circle" data-caption="'+r[i].Caption+'" src="'+r[i].ProfilePic+'"><label>'+r[i].Owner+' </label></div><img style="max-height: 500px; min-height: 300px; background-color: rgb('+r[i].MainColour+')" src="'+r[i].URL+'"></a><div class="header"><a href="javascript:void(0)" class="likephoto" data-liked='+ r[i].Liked +' data-postid="'+r[i].PostID+'" data-likes="'+r[i].Likes+'"><i class="fa fa-heart-o"></i></a></div><div class="more-section"><label>'+r[i].Likes+' Likes</label><p><strong>'+r[i].Owner+' </strong>'+r[i].Caption+'</p></div></div>')
                                 }
                                 $('.likephoto').each(function() {
                                         if ($(this).data('liked') == true) {

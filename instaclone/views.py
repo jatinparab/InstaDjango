@@ -67,8 +67,22 @@ def profile(request, username):
         if u.profilepic == "":
             u.profilepic = "static/assets/img/default.png"
 
+        followers_p = 0
+        following_p = 0
+        posts = 0
+
+        name = u.name
+        bio = u.bio
+
+
+        posts = Photo.objects.filter(owner=username)
+        posts = len(posts)
+
+        followers_p = len(Followers.objects.filter(user=username))
+        following_p = len(Followers.objects.filter(follower=username))
+
         context = {
-            'ProfilePic': u.profilepic, "whosprofile": username, "logged_in_as": request.user.username, "following": following, "cls":cls
+            'ProfilePic': u.profilepic, "whosprofile": username, "logged_in_as": request.user.username, "following": following, "cls":cls, "posts":posts, "followers_p":followers_p, "following_p": following_p,"name":name, "bio":bio
         }
 
         if request.user.is_authenticated:
