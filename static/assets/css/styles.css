@@ -355,8 +355,8 @@ grayscale:hover {
 }
 
 .profile-imgs div div {
-  width:290px;
-  height:290px;
+  width:230px;
+  height:230px;
   background-size:cover;
   background-position:center center;
   background-repeat:no-repeat;
@@ -482,6 +482,7 @@ grayscale:hover {
     justify-content:center;
     padding:30px;
     margin-top:120px;
+    flex-wrap:wrap;
 }
 
 #loadpost-wrap{
