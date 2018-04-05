@@ -63,7 +63,7 @@ class AjaxSignUp(Ajax):
         if User.objects.filter(email=self.email).exists():
             return self.error("Email address already in use.")
 
-        u = User(username=self.username, password=make_password(self.password), email=self.email)
+        u = User(username=self.username, password=make_password(self.password), email=self.email, bio=self.bio, name=self.name)
         u.save()
 
         return self.success("Account Created!")
