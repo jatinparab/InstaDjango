@@ -575,8 +575,26 @@ grayscale:hover {
   margin-top:5px;
 }
 
+.btn-g{
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+    font-weight:400;
+  color: #000;
+  font-size: 13px;
+  background: #fafafa;
+  padding: 3px 3px 3px 3px;
+  border: solid #dbdbdb 1px;
+  text-decoration: none;
+  margin-top:px;
+}
+
 #name-btn{
     display:flex;
     flex-direction:row;
     justify-content: flex-start;
+}
+
+.search-holder{
+    margin-top:23px;
 }

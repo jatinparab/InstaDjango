@@ -41,6 +41,8 @@ class AjaxSignUp(Ajax):
             self.username = self.args[0]["username"]
             self.password = self.args[0]["password"]
             self.email = self.args[0]["email"]
+            self.bio = self.args[0]["bio"]
+            self.name = self.args[0]["name"]
         except Exception as e:
             return self.error("Malformed request, did not process.")
 

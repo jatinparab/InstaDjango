@@ -141,3 +141,9 @@ $('#filter-div').slideUp(200, function() {
 CURRENT_ROTATION += 90
 $('#previewimg').attr('src', PREVIEW_URL + "-/rotate/" + CURRENT_ROTATION + "/")
 })
+
+function search(){
+
+        window.location = "/" + $('#srch').val();
+
+}

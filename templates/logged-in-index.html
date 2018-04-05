@@ -19,15 +19,24 @@
             <div class="header-top-inner">
                     <div class="top-menu-logo"><a href="/"><img src="{% static "assets/img/logo2.png" %}"></a>
                     </div>
-                    <div class="search-wrap">
+                    <div class="search-holder">
 
-                        <input type="text" class="input-search" placeholder="Search" value="">
+                        <input type="text" id="srch" class="input-search" placeholder="Username" value="">
 
+                        <button id="srchbtn" onclick="search()" class="btn-g">Search</button>
                     </div>
+
                     <div class="menu-buttons">
-                        <img class="icon-nav"  src="{% static "assets/img/explore.png" %}">
-                        <img class="icon-nav " src="{% static "assets/img/activity.png" %}">
-                        <img class="icon-nav" id="upload-but"  src="{% static "assets/img/user.png" %}">
+                        <img class="icon-nav" id="upload-but" src="{% static "assets/img/activity.png" %}">
+                        <div class="dropdown">
+                            <img class="icon-nav" type="button" data-toggle="dropdown" src="{% static "assets/img/user.png" %}">
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" href="/" >Feed</a></li>
+      <li role="presentation"><a role="menuitem" href="/{{ user.username}}">Profile</a></li>
+      <li role="presentation" class="divider"></li>
+      <li role="presentation"><a role="menuitem" href="/logout">Logout</a></li>
+    </ul>
+                        </div>
                        
                     </div>
             </div>
